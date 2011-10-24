@@ -34,3 +34,23 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+#######
+
+gem 'devise'
+gem 'haml'
+gem 'haml-rails'
+gem 'rails3-generators'
+gem 'inherited_resources'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem "ZenTest"
+  gem 'spork', '~> 0.9.0.rc'  # https://github.com/timcharper/spork
+  gem 'factory_girl_rails'    # allow in dev for easy object making from console
+end
+
+group :test do
+  gem 'rspec'
+  gem "shoulda-matchers"   # https://github.com/thoughtbot/shoulda-matchers
+end
