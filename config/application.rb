@@ -45,11 +45,20 @@ module Jobboard
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
+    ##### 
+    
     # http://paulbarry.com/articles/2010/01/13/customizing-generators-in-rails-3
     config.generators do |g|
       g.test_framework :rspec, :fixture => true, :views => false
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
     
+    # per devise install
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    
+    # per devise install
+    # If you are deploying Rails 3.1 on Heroku, you may want to set:
+    # config.assets.initialize_on_precompile = false
+  
   end
 end
