@@ -9,3 +9,7 @@
       %td= job.title
       %td= job.company
       %td= job.description
+      %td= link_to 'Show', job
+      - if user_signed_in?
+        %td= link_to 'Edit', edit_job_path(job)
+        %td= link_to 'Delete', job, :confirm => 'Are you sure?', :method => :delete
