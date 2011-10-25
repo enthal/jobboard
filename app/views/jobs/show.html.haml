@@ -1,0 +1,17 @@
+%table.display
+  %tr
+    %td Title
+    %td= @job.title
+  %tr
+    %td Company
+    %td= @job.company
+  %tr
+    %td Description
+    %td= @job.description
+
+%br
+
+%table.minimal
+  %tr
+    %td= link_to 'Edit', edit_job_path(@job)
+    %td= link_to 'Back', jobs_path
