@@ -12,10 +12,10 @@ describe "jobs/index.html.haml" do
       Factory.attributes_for(:job).each_value do |value|
         assert_select "tr>td", :text => value.to_s, :count => 2
       end
-      2.times do |i|
-        assert_select "tr>td>a[href=/jobs/#{jobs[i].id}]"
-        assert_select "tr>td>a[href=/jobs/#{jobs[i].id}/edit]", false
-        assert_select "tr>td>a[href=/jobs/#{jobs[i].id}][data-method]", false
+      jobs.each do |job|
+        assert_select "tr>td>a[href=#{job_path(job)}]"
+        assert_select "tr>td>a[href=#{edit_job_path(job)}]", false
+        assert_select "tr>td>a[href=#{job_path(job)}][data-method]", false
       end
     end
   end
@@ -27,9 +27,9 @@ describe "jobs/index.html.haml" do
       render
     end
     it "also includes edit and delete links for each job" do
-      2.times do |i|
-        assert_select "tr>td>a[href=/jobs/#{jobs[i].id}/edit]"
-        assert_select "tr>td>a[href=/jobs/#{jobs[i].id}][data-method=delete]"
+      jobs.each do |job|
+        assert_select "tr>td>a[href=#{edit_job_path(job)}]"
+        assert_select "tr>td>a[href=#{job_path(job)}][data-method]"
       end
     end
   end
