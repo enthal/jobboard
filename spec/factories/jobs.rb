@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :job do
-    title "MyString"
-    company "MyString"
-    description "MyText"
+    title "Faux Title"
+    company "FauxIndustries"
+    description "buzword buzword buzword buzword buzword buzword"
   end
 end
