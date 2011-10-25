@@ -1,2 +1,7 @@
-%h1 Jobs#index
-%p Find me in app/views/jobs/index.html.haml
+%h1 The Jobs
+%table.display
+  %tr
+    %th Name
+  - @jobs.each do |job|
+    %tr
+      %td= job.title
