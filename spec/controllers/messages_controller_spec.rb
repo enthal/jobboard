@@ -21,7 +21,7 @@ describe MessagesController do
     end
   
     describe "GET index" do
-      it "assigns only messages whose job's user is current user (these are messages sent to current_user)" do
+      it "assigns only messages whose job's user is current_user (these are messages sent to current_user)" do
       
         get :index
         assigns(:messages).should == [message1]
