@@ -24,6 +24,8 @@
           %td
             %table.minimal{style:"float:right"}
               %tr
+                - if user_signed_in?
+                  %td= link_to 'Post Job', new_job_path
                 = render 'layouts/registration_items'
                 = render 'layouts/login_items'
     

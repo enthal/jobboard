@@ -13,6 +13,7 @@ describe "layouts/application.html.haml" do
           assert_select 'a[href=/users/sign_up]'
           assert_select 'a[href=/users/sign_in]'
       
+          assert_select 'a[href=/jobs/new]', false
           assert_select 'a[href=/users/edit]', false
           assert_select 'a[href=/users/sign_out]', false
         end
@@ -28,6 +29,7 @@ describe "layouts/application.html.haml" do
         assert_select 'div.navbar' do
           assert_select '*', /#{Regexp.quote(user.name)}/
           
+          assert_select 'a[href=/jobs/new]'
           assert_select 'a[href=/users/edit]'
           assert_select 'a[href=/users/sign_out]'
       
