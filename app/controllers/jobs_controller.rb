@@ -2,6 +2,8 @@ class JobsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :forbid_unless_job_belongs_to_current_user!, :only => [:edit, :update, :destroy]
   
+  # NOTE: https://github.com/josevalim/inherited_resources
+  # NOTE: inherited_resources mixes in boilerplate CRUD code, at ApplicationController
   respond_to :html
   
   # TODO: should be in module JobsHelper?
@@ -11,17 +13,12 @@ class JobsController < ApplicationController
     head :forbidden
     false
   end
-  
-
-  # NOTE: https://github.com/josevalim/inherited_resources
-  # NOTE: inherited_resources mixes in boilerplate CRUD code, at ApplicationController
 
   def create
     @job = Job.new(params[:job])
     @job.user = current_user
     create!
   end
-  
   
   def send_message
     job = Job.find(params[:id])

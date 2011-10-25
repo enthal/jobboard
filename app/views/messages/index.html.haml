@@ -1,2 +1,17 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+%h1 Received Messages
+%table.display
+  %tr
+    %th From
+    %th 
+    %th Job Title
+    %th Company
+    %th Sent at
+    %th Message Body
+  - @messages.each do |message|
+    %tr
+      %td= message.user.name
+      %td= link_to message.user.email, "mailto:"+message.user.email
+      %td= message.job.title
+      %td= message.job.company
+      %td= message.created_at
+      %td= message.body
