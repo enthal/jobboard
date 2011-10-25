@@ -1,17 +1,18 @@
 %table.display
   %tr
-    %td Title
+    %th Title
     %td= @job.title
   %tr
-    %td Company
+    %th Company
     %td= @job.company
   %tr
-    %td Description
+    %th Description
     %td= @job.description
 
 %br
 
-%table.minimal
-  %tr
-    %td= link_to 'Edit', edit_job_path(@job)
-    %td= link_to 'Back', jobs_path
+- if current_user and @job.user == current_user
+  %table.minimal
+    %tr
+      %td= link_to 'Edit', edit_job_path(@job)
+      %td= link_to 'Delete', @job, :confirm => 'Are you sure?', :method => :delete
