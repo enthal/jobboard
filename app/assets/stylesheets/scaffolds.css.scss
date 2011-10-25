@@ -23,6 +23,18 @@ a {
     color: #fff;
     background-color: #000; } }
 
+.logolink a {
+  font-style: bold;
+  font-size: 120%;
+  text-decoration: none;
+  &:link {
+    color: #000; }
+  &:visited {
+    color: #000; }
+  &:hover {
+    color: #111;
+    background-color: #ddd; } }
+
 div {
   &.field, &.actions {
     margin-bottom: 10px; } }
@@ -56,6 +68,24 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+
+.navbar {
+  border-width: 3px;
+  border-style: outset;
+  border-color: #999;
+  background-color: #CCC;
+  padding: 3px
+}
+
+table.minimal {
+  border-style: hidden;
+  border-collapse: collapse;
+  td, th {
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px 7px;
+  }
+}
 
 table.display {
   border-collapse: collapse;

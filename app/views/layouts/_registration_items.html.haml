@@ -1,0 +1,4 @@
+- if user_signed_in?
+  %td= link_to('Edit registration', edit_user_registration_path)
+- else
+  %td= link_to('Register', new_user_registration_path)
