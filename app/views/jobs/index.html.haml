@@ -1,7 +1,11 @@
 %h1 The Jobs
 %table.display
   %tr
-    %th Name
+    %th Title
+    %th Company
+    %th Description
   - @jobs.each do |job|
     %tr
       %td= job.title
+      %td= job.company
+      %td= job.description
