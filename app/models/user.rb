@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :jobs, :dependent => :destroy
+
   validates_presence_of :name
   validates_length_of :name, :minimum => 3
   

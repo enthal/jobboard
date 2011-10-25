@@ -8,6 +8,8 @@ describe Job do
       job.should be_valid
     end
     
+    it { should belong_to(:user) }
+    
     it { should validate_presence_of(:title) }
     it { should ensure_length_of(:title).is_at_least(3) }
     it { should validate_presence_of(:company) }
