@@ -9,6 +9,7 @@ describe User do
     end
     
     it { should have_many(:jobs).dependent(:destroy) }
+    it { should have_many(:messages).dependent(:destroy) }
     
     it { should validate_presence_of(:name) }
     it { should ensure_length_of(:name).is_at_least(3) }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025061720) do
+ActiveRecord::Schema.define(:version => 20111025161638) do
 
   create_table "jobs", :force => true do |t|
     t.string   "title"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20111025061720) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "job_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["job_id"], :name => "index_messages_on_job_id"
+  add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
