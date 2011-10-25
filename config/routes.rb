@@ -1,6 +1,4 @@
 Jobboard::Application.routes.draw do
-  get "jobs/index"
-
   devise_for :users
   
   resources :jobs do
@@ -8,6 +6,8 @@ Jobboard::Application.routes.draw do
       post :send_message
     end
   end
+  
+  resources :messages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
