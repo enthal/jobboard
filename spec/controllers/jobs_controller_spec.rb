@@ -3,6 +3,9 @@ require 'spec_helper'
 describe JobsController do
   include Devise::TestHelpers
   
+  # NOTE: https://github.com/josevalim/inherited_resources
+  # NOTE: inherited_resources mixes in boilerplate CRUD code, at ApplicationController
+  
   describe "disallow member-user-only actions when not logged in (guest/unprivileged)" do
     let(:job) { Factory.create(:job) }
     
@@ -48,6 +51,18 @@ describe JobsController do
       it { delete :destroy, :id => job }
     end
   
+    describe "POST send_message" do
+      let(:job) { Factory.create(:job) }
+
+      it "creates a new Message belonging to context User, Job" do
+        Message.count.should == 0
+        post :send_message, :id => job, :user_id => user, :body => 'words words words'
+        Message.count.should == 1
+        user.messages.should == Message.all
+        job .messages.should == Message.all
+      end
+    end
+    
   end
 
 end

@@ -11,8 +11,22 @@
 
 %br
 
-- if current_user and @job.user == current_user
-  %table.minimal
-    %tr
-      %td= link_to 'Edit', edit_job_path(@job)
-      %td= link_to 'Delete', @job, :confirm => 'Are you sure?', :method => :delete
+- if current_user
+
+  - if @job.user == current_user
+    %table.minimal
+      %tr
+        %td= link_to 'Edit', edit_job_path(@job)
+        %td= link_to 'Delete', @job, :confirm => 'Are you sure?', :method => :delete
+  - else
+    = form_tag(:controller=>:jobs, :action=>:send_message, :id=>@job, :user_id=>current_user) do
+      %table.display
+        %tr
+          %th Send Message to Job Poster
+        %tr
+          %td= text_area_tag :body
+        %tr
+          %td= submit_tag 'Send to Poster'
+
+- else
+  %p Register or Log in now to message this job's poster!
