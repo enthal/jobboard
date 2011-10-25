@@ -27,7 +27,6 @@ describe "layouts/application.html.haml" do
       
         assert_select 'div.navbar' do
           assert_select '*', /#{Regexp.quote(user.name)}/
-          assert_select '*', /#{Regexp.quote(user.email)}/
           
           assert_select 'a[href=/users/edit]'
           assert_select 'a[href=/users/sign_out]'
