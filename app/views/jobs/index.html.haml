@@ -10,6 +10,6 @@
       %td= job.company
       %td= job.description
       %td= link_to 'Show', job
-      - if user_signed_in?
+      - if current_user and job.user == current_user
         %td= link_to 'Edit', edit_job_path(job)
         %td= link_to 'Delete', job, :confirm => 'Are you sure?', :method => :delete

@@ -3,8 +3,12 @@ require 'spec_helper'
 describe "jobs/index.html.haml" do
   include Devise::TestHelpers
   
-  let(:jobs) { [Factory.create(:job)] * 2 }
-  before(:each) { assign :jobs, jobs }
+  before do
+    Factory.create(:user, email:"user1@example.com")
+    Factory.create(:user, email:"user2@example.com")
+  end
+  let(:jobs) { User.all.map { |user| Factory.create(:job, user: user) } }
+  before { assign :jobs, jobs }
 
   context "guest" do
     it "renders a list of jobs without edit or delete links" do
@@ -13,24 +17,23 @@ describe "jobs/index.html.haml" do
         assert_select "tr>td", :text => value.to_s, :count => 2
       end
       jobs.each do |job|
-        assert_select "tr>td>a[href=#{job_path(job)}]"
+        assert_select "tr>td>a[href=#{     job_path(job)}]"
         assert_select "tr>td>a[href=#{edit_job_path(job)}]", false
-        assert_select "tr>td>a[href=#{job_path(job)}][data-method]", false
+        assert_select "tr>td>a[href=#{     job_path(job)}][data-method]", false
       end
     end
   end
 
   context "logged in" do
-    let(:user) { Factory.create(:user) }
-    before do
-      sign_in user
+    it "also includes edit and delete links for job created by this user only" do
+      sign_in User.last
       render
-    end
-    it "also includes edit and delete links for each job" do
-      jobs.each do |job|
-        assert_select "tr>td>a[href=#{edit_job_path(job)}]"
-        assert_select "tr>td>a[href=#{job_path(job)}][data-method]"
-      end
+      
+      assert_select "tr>td>a[href=#{edit_job_path(Job.first)}]", false
+      assert_select "tr>td>a[href=#{     job_path(Job.first)}][data-method]", false
+      
+      assert_select "tr>td>a[href=#{edit_job_path(Job.last)}]"
+      assert_select "tr>td>a[href=#{     job_path(Job.last)}][data-method]"
     end
   end
   
