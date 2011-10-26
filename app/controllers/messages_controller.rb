@@ -6,6 +6,9 @@ class MessagesController < ApplicationController
   respond_to :html
   
   def index
+    # Premature optimization: include the sending user and job with each message if wide results are faster than many queries
+    # @messages = Message .includes(:user, :job) .where('jobs.user_id' => current_user)
+    
     @messages = Message .joins(:job) .where('jobs.user_id' => current_user)
     index!
   end
