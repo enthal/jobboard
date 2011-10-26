@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   respond_to :html
   
   def index
-    @messages = Message.all.select { |message| message.job.user == current_user }  # TODO use a query!! DO NOT just load all the messages
+    @messages = Message .joins(:job) .where('jobs.user_id' => current_user)
     index!
   end
 end

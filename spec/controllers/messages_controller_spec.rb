@@ -25,6 +25,7 @@ describe MessagesController do
       
         get :index
         assigns(:messages).should == [message1]
+        Message.all               == [message1, message2]
       end
     end
   end
