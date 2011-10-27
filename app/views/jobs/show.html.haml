@@ -5,9 +5,13 @@
   %tr
     %th Company
     %td= @job.company
+
+%br
+%table.display
   %tr
     %th Description
-    %td= @job.description
+  %tr
+    %td= simple_format @job.description
 
 %br
 
