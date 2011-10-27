@@ -4,8 +4,8 @@ describe "jobs/index.html.haml" do
   include Devise::TestHelpers
   
   before do
-    Factory.create(:user, email:"user1@example.com")
-    Factory.create(:user, email:"user2@example.com")
+    Factory.create(:user1)
+    Factory.create(:user2)
   end
   let(:jobs) { User.all.map { |user| Factory.create(:job, user: user) } }
   before { assign :jobs, jobs }
