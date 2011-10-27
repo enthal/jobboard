@@ -6,15 +6,13 @@ describe MessagesController do
   # NOTE: https://github.com/josevalim/inherited_resources
   # NOTE: inherited_resources mixes in boilerplate CRUD code, at ApplicationController
   
-  context "signed in as user 1, who has posted a job for which there is one message from user 2, who posted a job for which there is one message from user 1" do
-    let(:user1)    { Factory.create(:user) }
-    let(:user2)    { Factory.create(:user) }
-    let(:job1)     { Factory.create(:job, user: user1) }
-    let(:job2)     { Factory.create(:job, user: user2) }
-    let(:message1) { Factory.create(:message, user: user2, job: job1) }
-    let(:message2) { Factory.create(:message, user: user1, job: job2) }
+  context "signed in as the user who has posted job1 for which there is message2 from another user, who posted job2 for which there is message1 from the poster of job1" do
+    let(:job1)     { Factory.create(:job) }
+    let(:job2)     { Factory.create(:job) }
+    let(:message1) { Factory.create(:message, user: job2.user, job: job1) }
+    let(:message2) { Factory.create(:message, user: job1.user, job: job2) }
     before do
-      sign_in user1
+      sign_in job1.user
       message1
       message2
       Message.count.should == 2
