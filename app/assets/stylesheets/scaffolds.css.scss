@@ -94,6 +94,11 @@ table.display {
     border-width: 1px;
     border-color: #ccc;
     padding: 0px 3px;
+    
+    p {
+      padding: 0px;
+      margin: 0px;
+    }
   }
   th {
     text-align: left;

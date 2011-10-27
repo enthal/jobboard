@@ -8,7 +8,7 @@
     %tr
       %td= job.title
       %td= job.company
-      %td= paragraph_prefix job.description
+      %td= simple_format paragraph_prefix job.description, 75
       %td= link_to 'Show', job
       - if current_user and job.user == current_user
         %td= link_to 'Edit', edit_job_path(job)
