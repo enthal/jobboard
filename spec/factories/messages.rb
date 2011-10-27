@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :message do
-    user nil
-    job nil
+    user
+    job
     body "Some message text"
   end
 end

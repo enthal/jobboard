@@ -3,11 +3,7 @@ require 'spec_helper'
 describe "jobs/index.html.haml" do
   include Devise::TestHelpers
   
-  before do
-    Factory.create(:user1)
-    Factory.create(:user2)
-  end
-  let(:jobs) { User.all.map { |user| Factory.create(:job, user: user) } }
+  let(:jobs) { Array.new(2) { Factory.create(:job) } }
   before { assign :jobs, jobs }
 
   context "guest" do

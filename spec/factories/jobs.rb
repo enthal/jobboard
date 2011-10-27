@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :job do
+    user
     title "Faux Title"
     company "FauxIndustries"
     description "buzword buzword buzword buzword buzword buzword"

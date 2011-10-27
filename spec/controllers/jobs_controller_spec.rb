@@ -34,8 +34,7 @@ describe JobsController do
     end
   
     describe "forbid editing and deleting jobs not created by current_user" do
-      let(:user2) { Factory.create(:user2) }
-      let(:job)   { Factory.create(:job, user: user2) }
+      let(:job)   { Factory.create(:job) }
       let(:job_edited_params) { Factory.attributes_for(:job).merge(title:'wonky!')}
       
       before { job }

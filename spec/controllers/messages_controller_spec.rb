@@ -7,8 +7,8 @@ describe MessagesController do
   # NOTE: inherited_resources mixes in boilerplate CRUD code, at ApplicationController
   
   context "signed in as user 1, who has posted a job for which there is one message from user 2, who posted a job for which there is one message from user 1" do
-    let(:user1)    { Factory.create(:user1) }
-    let(:user2)    { Factory.create(:user2) }
+    let(:user1)    { Factory.create(:user) }
+    let(:user2)    { Factory.create(:user) }
     let(:job1)     { Factory.create(:job, user: user1) }
     let(:job2)     { Factory.create(:job, user: user2) }
     let(:message1) { Factory.create(:message, user: user2, job: job1) }
