@@ -18,6 +18,13 @@ describe "jobs/index.html.haml" do
         assert_select "tr>td>a[href=#{     job_path(job)}][data-method]", false
       end
     end
+    
+    it "uses abbreviated description" do
+      jobs.first.description = "line1\nline2"
+      render
+      assert_select "tr>td", :text => "line1", :count => 1
+      assert_select "tr>td", :text => "line2", :count => 0
+    end
   end
 
   context "logged in" do
