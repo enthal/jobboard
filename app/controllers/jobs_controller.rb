@@ -30,7 +30,12 @@ class JobsController < ApplicationController
     job = Job.find(params[:id])
     user = User.find(params[:user_id])
     message = Message.create(job: job, user: user, body: params[:body])
-    redirect_to job, notice: 'Sent message to job poster!'
+    flash = if message.valid?
+      { notice: 'Message sent to job poster!' }
+    else
+      { alert: 'Cannot send message: ' + message.errors.full_messages.join('; ') }
+    end
+    redirect_to job, flash
   end
   
 end

@@ -11,7 +11,6 @@ describe Message do
     it { should belong_to(:user) }
     it { should belong_to(:job) }
     
-    it { should validate_presence_of(:body) }
-    it { should ensure_length_of(:body).is_at_least(1) }
+    it { should ensure_length_of(:body).is_at_least(10) }
   end
 end
