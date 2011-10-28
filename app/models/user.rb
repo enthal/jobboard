@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  
+  def messages_received
+    Message.received_by_user self
+  end
 end

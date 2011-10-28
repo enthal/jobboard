@@ -6,11 +6,10 @@ class MessagesController < ApplicationController
   respond_to :html
   
   def index
-    @messages = Message .joins(:job) .where('jobs.user_id' => current_user) .order('created_at desc')
-    
     # Premature optimization: include the sending user and job with each message if wide results are faster than many queries
-    # @messages = Message .includes(:user, :job) .where('jobs.user_id' => current_user) .order('created_at desc')
+    # @messages = current_user.messages_received.includes(:user, :job)
     
+    @messages = current_user.messages_received
     index!
   end
 end
