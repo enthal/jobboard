@@ -7,7 +7,7 @@
 %html
 
   %head
-    %title Jobboard
+    %title JobBoard
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -16,12 +16,13 @@
   
     %div.navbar
       %table{style:"width:100%"}
-        %tr
+        %tr.subtle
           %td
             %table.minimal
               %tr
                 %td
-                  %b.logolink= link_to "JobBoard", root_path
+                  %b.logolink
+                    %a{href:root_path} Job<i>Board</i>
                 - if user_signed_in?
                   %td
                     Welcome
@@ -29,7 +30,7 @@
           %td
             %table.minimal{style:"float:right"}
               %tr
-                %td= link_to 'Job List', jobs_path
+                %td= link_to 'List Jobs', jobs_path
                 - if user_signed_in?
                   %td= link_to 'Post Job', new_job_path
                   %td= link_to 'View Messages', messages_path
