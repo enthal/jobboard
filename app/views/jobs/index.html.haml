@@ -1,14 +1,18 @@
 %h1 The Jobs
 %table.display.wide
   %tr
+    - if current_user
+      %th
     %th Title
     %th Company
     %th Description
   - @jobs.each do |job|
     %tr
+      - if current_user
+        %td.icon
+          - if job.user == current_user
+            = link_to '✖', job, title: 'Delete', confirm: 'Are you sure?', method: :delete, style: 'color:#700'
+            = link_to '✎', edit_job_path(job), title: 'Edit', style: 'color:#007'
       %td.subtle= link_to job.title, job
       %td.subtle= link_to job.company, job
       %td.subtle= link_to (simple_format paragraph_prefix job.description, 75), job
-      - if current_user and job.user == current_user
-        %td.bold= link_to 'Edit', edit_job_path(job)
-        %td.bold= link_to 'Delete', job, :confirm => 'Are you sure?', :method => :delete

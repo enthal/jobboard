@@ -10,7 +10,7 @@
   - @messages.each do |message|
     %tr
       %td= message.user.name
-      %td= link_to message.user.email,              "mailto:"+message.user.email
+      %td= mail_to message.user.email
       %td= link_to message.job.title,               message.job
       %td= link_to message.job.company,             message.job
       %td= link_to message.created_at,              message

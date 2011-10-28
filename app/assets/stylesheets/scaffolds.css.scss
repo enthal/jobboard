@@ -38,7 +38,7 @@ a {
 
 .logolink a {
   font-style: bold;
-  font-size: 120%;
+  font-size: 130%;
   text-decoration: none;
   &:link {
     color: #000; }
@@ -151,5 +151,20 @@ table.display {
       background-color: #FFF;
       text-decoration: none;
     }
+  }
+}
+
+.icon {
+  text-align: center;
+/*  font-weight: bold;*/
+  font-size: 150%;
+  a {
+    color: #000; 
+    text-decoration: none;
+    &:hover {
+      color: #111;
+      background-color: #DDD; 
+    }
+    
   }
 }

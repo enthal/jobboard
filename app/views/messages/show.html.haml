@@ -5,7 +5,7 @@
     %td= @message.user.name
   %tr
     %th
-    %td= link_to @message.user.email, "mailto:"+@message.user.email
+    %td= mail_to @message.user.email
   %tr
     %th Job Title
     %td= link_to @message.job.title,   @message.job
