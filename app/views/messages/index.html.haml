@@ -11,7 +11,7 @@
     %tr
       %td= message.user.name
       %td= link_to message.user.email, "mailto:"+message.user.email
-      %td= message.job.title
-      %td= message.job.company
+      %td= link_to message.job.title,   message.job
+      %td= link_to message.job.company, message.job
       %td= message.created_at
       %td= message.body
