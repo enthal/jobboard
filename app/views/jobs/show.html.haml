@@ -22,6 +22,10 @@
       %tr
         %td= link_to 'Edit', edit_job_path(@job)
         %td= link_to 'Delete', @job, :confirm => 'Are you sure?', :method => :delete
+    
+    %h3 Messages about this Job
+    = render 'messages/table'
+      
   - else
     = form_tag(:controller=>:jobs, :action=>:send_message, :id=>@job, :user_id=>current_user) do
       %table.display

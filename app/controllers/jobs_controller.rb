@@ -13,11 +13,17 @@ class JobsController < ApplicationController
     head :forbidden
     false
   end
-
+  
   def create
     @job = Job.new(params[:job])
     @job.user = current_user
     create!
+  end
+  
+  def show
+    @job = Job.find(params[:id])
+    @messages = @job.messages
+    show!
   end
   
   def send_message
