@@ -1,4 +1,8 @@
-From: Jay Margolis <jay@crowdcast.com>
+JobBoard: A simple rails demo project.
+Copyright © 2011 Timothy James; All rights reserved
+https://github.com/enthal/jobboard
+
+From: Jay ... <jay@_______.com>
 Subject: Re: Hat, in the ring.
 Date: Wed, 19 Oct 2011 15:39:16 -0700
 
