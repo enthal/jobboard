@@ -6,12 +6,12 @@
     %th Job Title
     %th Company
     %th Sent at
-    %th Message Body
+    %th
   - @messages.each do |message|
     %tr
       %td= message.user.name
-      %td= link_to message.user.email, "mailto:"+message.user.email
-      %td= link_to message.job.title,   message.job
-      %td= link_to message.job.company, message.job
-      %td= message.created_at
-      %td= message.body
+      %td= link_to message.user.email,              "mailto:"+message.user.email
+      %td= link_to message.job.title,               message.job
+      %td= link_to message.job.company,             message.job
+      %td= link_to message.created_at,              message
+      %td= link_to message.body.strip.truncate(40), message

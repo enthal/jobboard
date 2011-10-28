@@ -1,2 +1,22 @@
-%h1 Messages#show
-%p Find me in app/views/messages/show.html.haml
+%h1 Message
+%table.display.wide_tds
+  %tr
+    %th From
+    %td= @message.user.name
+  %tr
+    %th
+    %td= link_to @message.user.email, "mailto:"+@message.user.email
+  %tr
+    %th Job Title
+    %td= link_to @message.job.title,   @message.job
+  %tr
+    %th Company
+    %td= link_to @message.job.company, @message.job
+  %tr
+    %th Sent at
+    %td= @message.created_at
+
+%br
+%table.display.wide
+  %tr
+    %td= simple_format @message.body
