@@ -20,11 +20,21 @@ describe MessagesController do
   
     describe "GET index" do
       it "assigns only messages whose job's user is current_user (these are messages sent to current_user)" do
-      
         get :index
         assigns(:messages).should == [message1]
         Message.all               == [message1, message2]
       end
     end
+    
+    context "two more messages for signed-in user with out-of-order created_at" do
+      let(:message_newest) { Factory.create(:message, user: job2.user, job: job1, created_at: message1.created_at + 1.minute) }
+      let(:message_oldest) { Factory.create(:message, user: job2.user, job: job1, created_at: message1.created_at - 1.minute) }
+      
+      it "lists messages from newest to oldest" do
+        get :index
+        assigns(:messages).should == [message_newest, message1, message_oldest]
+      end
+    end
+    
   end
 end
