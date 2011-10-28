@@ -25,6 +25,17 @@ a {
     color: #fff;
     background-color: #000; } }
 
+.subtle a {
+  color: #000;
+  text-decoration: none;
+  &:visited {
+    color: #333; }
+  &:hover {
+    text-decoration: underline;
+    color: #111;
+    background-color: #EEE; }
+}
+
 .logolink a {
   font-style: bold;
   font-size: 120%;
@@ -35,7 +46,7 @@ a {
     color: #000; }
   &:hover {
     color: #111;
-    background-color: #ddd; } }
+    background-color: #DDD; } }
 
 div {
   &.field, &.actions {
@@ -123,4 +134,19 @@ table.display {
 
 .wide {
   width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+  a { 
+    &:visited {
+      color: #000; 
+      background-color: #FFF;
+    }
+    &:hover {
+      color: #000; 
+      background-color: #FFF;
+      text-decoration: none;
+    }
+  }
 }

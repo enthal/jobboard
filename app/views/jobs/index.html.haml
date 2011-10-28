@@ -6,10 +6,9 @@
     %th Description
   - @jobs.each do |job|
     %tr
-      %td= job.title
-      %td= job.company
-      %td= simple_format paragraph_prefix job.description, 75
-      %td= link_to 'Show', job
+      %td.subtle= link_to job.title, job
+      %td.subtle= link_to job.company, job
+      %td.subtle= link_to (simple_format paragraph_prefix job.description, 75), job
       - if current_user and job.user == current_user
-        %td= link_to 'Edit', edit_job_path(job)
-        %td= link_to 'Delete', job, :confirm => 'Are you sure?', :method => :delete
+        %td.bold= link_to 'Edit', edit_job_path(job)
+        %td.bold= link_to 'Delete', job, :confirm => 'Are you sure?', :method => :delete

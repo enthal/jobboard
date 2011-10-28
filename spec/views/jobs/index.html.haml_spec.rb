@@ -9,13 +9,12 @@ describe "jobs/index.html.haml" do
   context "guest" do
     it "renders a list of jobs without edit or delete links" do
       render
-      Factory.attributes_for(:job).each_value do |value|
-        assert_select "tr>td", :text => value.to_s, :count => 2
-      end
       jobs.each do |job|
-        assert_select "tr>td>a[href=#{     job_path(job)}]"
-        assert_select "tr>td>a[href=#{edit_job_path(job)}]", false
-        assert_select "tr>td>a[href=#{     job_path(job)}][data-method]", false
+        Factory.attributes_for(:job).each_value do |value|
+          assert_select "tr>td>a[href=#{     job_path(job)}]", :text => value.to_s
+        end
+        assert_select   "tr>td>a[href=#{edit_job_path(job)}]", false
+        assert_select   "tr>td>a[href=#{     job_path(job)}][data-method]", false
       end
     end
     
