@@ -3,5 +3,5 @@ class Message < ActiveRecord::Base
   belongs_to :job
   
   validates_presence_of :body
-  validates_length_of :body, :minimum => 10
+  validates_length_of :body, :minimum => 1
 end
