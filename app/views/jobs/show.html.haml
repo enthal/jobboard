@@ -1,13 +1,13 @@
 %table.display
   %tr
     %th Title
-    %td= @job.title
+    %td.wide= @job.title
   %tr
     %th Company
-    %td= @job.company
+    %td.wide= @job.company
 
 %br
-%table.display
+%table.display.wide
   %tr
     %th Description
   %tr
@@ -30,7 +30,10 @@
         %tr
           %td= text_area_tag :body
         %tr
-          %td= submit_tag 'Send to Poster'
+          %td
+            = submit_tag 'Send to Poster'
+            %div Poster will see your email address
+            
 
 - else
   %p Register or Log in now to message this job's poster!
