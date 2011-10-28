@@ -3,7 +3,9 @@ body {
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+  line-height: 18px; 
+  margin: 0px;
+}
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -39,9 +41,22 @@ div {
   &.field, &.actions {
     margin-bottom: 10px; } }
 
-#notice {
+
+.notice, .alert {
+  border-bottom-style: dashed;
+  border-bottom-width: 2px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+.notice {
+  border-color: green;
+  background-color: #DFD;
   color: green; }
-#alert {
+.alert {
+  border-color: red;
+  background-color: #FDD;
   color: red; }
 
 .field_with_errors {

@@ -7,7 +7,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-  %body
+  %body 
   
     %div.navbar
       %table{style:"width:100%"}
@@ -31,7 +31,12 @@
                 = render 'layouts/registration_items'
                 = render 'layouts/login_items'
     
-    %p.notice= notice
-    %p.alert= alert
     
-    = yield
+    - if notice
+      %div.notice= notice
+    - if alert
+      %div.alert= alert
+    
+    %div{style:"margin:10px"}
+    
+      = yield
