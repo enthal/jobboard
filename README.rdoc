@@ -1,12 +1,17 @@
-JobBoard: A simple rails demo project.
-Copyright © 2011 Timothy James; All rights reserved
-https://github.com/enthal/jobboard
+= JobBoard: A simple rails demo project.
+  Copyright © 2011 Timothy James; All rights reserved
+  http://github.com/enthal/jobboard
 
-From: Jay ... <jay@_______.com>
-Subject: Re: Hat, in the ring.
-Date: Wed, 19 Oct 2011 15:39:16 -0700
+== The Solution
 
-Here also is the coding assignment we often give to candidates.  It's not intended to take more than a day's work; if you think it would take longer, let's discuss and pair it back as it's not intended to take that long.
+At the time of this writing, running at: http://sharp-fire-2175.herokuapp.com/
+
+== The Challenge
+
+  From: ...@......com
+  Date: Wed, 19 Oct 2011 15:39:16 -0700
+
+Here also is the coding assignment we often give to candidates.  ...
 
 Create a job board for users to post their own jobs and responding to others.  It should contain the following functionality:
 
